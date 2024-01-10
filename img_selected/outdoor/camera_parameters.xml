@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<calibration>
+  <projection>frame</projection>
+  <width>8192</width>
+  <height>5460</height>
+  <f>8215.93777</f>
+  <cx>0</cx>
+  <cy>0</cy>
+  <b1>0</b1>
+  <b2>0</b2>
+  <k1>0</k1>
+  <k2>0</k2>
+  <k3>0</k3>
+  <date>2022-05-26T08:27:27Z</date>
+</calibration>
