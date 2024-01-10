@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Ricci Oddi Gallery of Modern Art">
+	<meta name="author" content="Rebecca Fascia">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Ricci Oddi Gallery</title>
+	<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="./libs/potree/potree.css">
+	<link rel="stylesheet" type="text/css" href="./libs/jquery-ui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="./libs/openlayers3/ol.css">
+	<link rel="stylesheet" type="text/css" href="./libs/spectrum/spectrum.css">
+	<link rel="stylesheet" type="text/css" href="./libs/jstree/themes/mixed/style.css">
+</head>
+
+<body>
+	<script src="./libs/jquery/jquery-3.1.1.min.js"></script>
+	<script src="./libs/spectrum/spectrum.js"></script>
+	<script src="./libs/jquery-ui/jquery-ui.min.js"></script>
+	<script src="./libs/other/BinaryHeap.js"></script>
+	<script src="./libs/tween/tween.min.js"></script>
+	<script src="./libs/d3/d3.js"></script>
+	<script src="./libs/proj4/proj4.js"></script>
+	<script src="./libs/openlayers3/ol.js"></script>
+	<script src="./libs/i18next/i18next.js"></script>
+	<script src="./libs/jstree/jstree.js"></script>
+	<script src="./libs/potree/potree.js"></script>
+	<script src="./libs/plasio/js/laslaz.js"></script>
+	<script src="./libs/three.js/build/three.min.js"></script>
+	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<!--Including welcome message-->
+	<div id="container" class="container">
+		<div class="info">
+			<div class="website-link"><a href="https://riccioddi.it/" target="_blank">Official website</a></div>
+			<div class="title">Ricci Oddi Gallery</div>
+			<br>
+			<div class="subtitle">Virtual tour implemented by <a href="https://labmgf.dica.polimi.it/"
+					target="_blank"><b>LabMGF@PoliMI</b></a></div>
+			<div class="button" id="start_exploring" onclick="hideWelcomePanel()">Start exploring!</div>
+			<div class="instructions">
+				<div><strong>Rotate</strong>: Left button</div>
+				<div><strong>Move</strong>: Right button</div>
+				<div><strong>Zoom in/Zoom out</strong>: Scroll wheel</div>
+			</div>
+		</div>
+	</div>
+	<!--Defining searchbx by artwork title-->
+	<div class="search-container">
+		<input type="text" id="searchInput" placeholder="Search artwork title...">
+		<div id="suggestions" class="suggestions"></div>
+	</div>
+	<!--Loading settings for Potree viewer-->
+	<div class="potree_container" style="position: relative; height:100%; width: 100%;">
+		<div id="potree_render_area" style="background-image: url('./build/potree/resources/images/background.jpg');">
+		</div>
+		<div id="potree_sidebar_container" style="width: 50%; height: 100%;"> </div>
+	</div>
+	<div id="info-panel" style="display: none;">
+		<h2 id="info-title"></h2>
+		<p id="info-artist"></p>
+		<!--<iframe id="info-iframe" src="" width="100%" height="300"></iframe>-->
+		<a id="info-youtube">YouTube Commentary</a>
+		<p id="info-year"></p>
+		<p id="info-medium"></p>
+		<p id="info-dimensions"></p>
+		<!-- Add more elements as needed -->
+	</div>	
+	<!-- Import ARTWORKS list-->
+	<script src="js/artworks.js"></script>
+	<script src="./js/main.js"></script>
+	<!-- Import POINTCLOUD-->
+	<script src="js/pointcloud.js"></script>
+	<!-- Import ANNOTATIONS-->
+	<script src="js/annotations.js"></script>
+	<!--Import ORIENTED IMAGES-->
+	<script src="js/orientedcameras.js"></script>
+	<!--Import MESH-->
+	<script type="module" src="js/mesh.js"></script>
+</body>
+
+</html>

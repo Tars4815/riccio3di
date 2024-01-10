@@ -142,5 +142,27 @@ a:link, a:hover, a:visited, a:active {
     text-align: right;
 }
 
+#info-youtube {
+    font-size: 0.8em;
+    text-align: right;
+    color: rgb(54, 52, 52);
+    text-decoration: underline;
+}
+
+#info-year {
+    font-size: 0.8em;
+    text-align: right;
+}
+
+#info-medium {
+    font-size: 0.8em;
+    text-align: right;
+    font-style: italic;
+}
+
+#info-dimensions {
+    font-size: 0.8em;
+    text-align: right;
+}
 
 

@@ -24,16 +24,13 @@ function searchInArray(array, searchString) {
             title: obj.title,
             artist: obj.artist,
             file: obj.file,
-            link: obj.link,
+            youtube: obj.youtube,
+            year: obj.year,
+            medium: obj.medium,
+            dimensions: obj.dimensions,
         };
     });
 }
-
-//Flying to suggested artwork
-/*function flyToSuggestion(array, searchString) {
-    var searchResult = searchInArray(array, searchString);
-    flyToImage(searchResult[0].file,"artworks");
-}*/
 
 //Testing updated version of flyToSuggestion
 function flyToSuggestion(array, searchString) {
@@ -50,8 +47,14 @@ function flyToSuggestion(array, searchString) {
 function updateInfoPanel(artwork) {
     document.getElementById('info-title').textContent = artwork.title;
     document.getElementById('info-artist').innerHTML = '<b>Artist:</b> ' + artwork.artist;
-    var iframe = document.getElementById('info-iframe');
-    iframe.src = artwork.link;
+    //var iframe = document.getElementById('info-iframe');
+    //iframe.src = artwork.youtube;
+    var youtubeLink = document.getElementById('info-youtube');
+    youtubeLink.setAttribute('href', artwork.youtube);
+    youtubeLink.setAttribute('target', '_blank');
+    document.getElementById('info-year').innerHTML = '<b>Year:</b> ' + artwork.year;
+    document.getElementById('info-medium').innerHTML = artwork.medium;
+    document.getElementById('info-dimensions').innerHTML = artwork.dimensions;
     document.getElementById('info-panel').style.display = 'block';
 }
 

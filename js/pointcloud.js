@@ -36,6 +36,7 @@ viewer.setScene(scene);
 Potree.loadPointCloud("./pointclouds/tls/metadata.json", "Terrestrial Laser Scannning", e => {
     let pointcloud = e.pointcloud;
     let material = pointcloud.material;
+    pointcloud.projection = "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs +type=crs";
     material.size = 0.6;
     material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
     material.shape = Potree.PointShape.CIRCLE;
@@ -46,6 +47,7 @@ Potree.loadPointCloud("./pointclouds/tls/metadata.json", "Terrestrial Laser Scan
 Potree.loadPointCloud("./pointclouds/drone/metadata.json", "Drone photogrammetry", e => {
     let pointcloud = e.pointcloud;
     let material = pointcloud.material;
+    pointcloud.projection = "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs +type=crs";
     material.size = 0.6;
     material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
     material.shape = Potree.PointShape.CIRCLE;
@@ -55,6 +57,7 @@ Potree.loadPointCloud("./pointclouds/drone/metadata.json", "Drone photogrammetry
 Potree.loadPointCloud("./pointclouds/slam/metadata.json", "SLAM laser", e => {
     let pointcloud = e.pointcloud;
     let material = pointcloud.material;
+    pointcloud.projection = "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs +type=crs";
     material.size = 0.6;
     material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
     material.shape = Potree.PointShape.CIRCLE;
