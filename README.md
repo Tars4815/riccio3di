@@ -1,7 +1,9 @@
 # riccio3di
 A web app for exploring in 3D an art exhibition based on Potree JS.
 
-![ Home page of the Potree based platform](./screenshots/riccio3di-welcomepanel.png "Homepage of the Potree based platform of the Farnese Castel in Piacenza (Italy)")
+![Home page of the Potree based platform](./screenshots/riccio3di-welcomepanel.png "Homepage of the Potree based platform of the Ricci Oddi Gallery in Piacenza (Italy)")
+
+![Example of an artwork view with informative panel](./screenshots/riccio3di-artworkpanel.png "Example of an artwork view with informative panel in the indoor pointcloud")
 
 ## **Table of content** 📋
 
@@ -20,7 +22,7 @@ Make sure you have the following installed and working in order to reproduce the
 
 ## **License**
 
-[...]
+For continuity sake, this project carries the same license as the original Potree project. More information can be found in the [LICENSE](https://github.com/Tars4815/riccio3di/blob/main/LICENCE) file.
 
 ## **Features** 💡
 - Fullscreen HTML5 API
