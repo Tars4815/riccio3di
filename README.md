@@ -1,6 +1,8 @@
 # riccio3di
 A web app for exploring in 3D an art exhibition based on Potree JS.
 
+A working example can be found on the [LabMGF@PoliMi](https://labmgf.dica.polimi.it/pujob/riccio3di/) website.
+
 ![Home page of the Potree based platform](./screenshots/riccio3di-welcomepanel.png "Homepage of the Potree based platform of the Ricci Oddi Gallery in Piacenza (Italy)")
 
 ![Example of an artwork view with informative panel](./screenshots/riccio3di-artworkpanel.png "Example of an artwork view with informative panel in the indoor pointcloud")
