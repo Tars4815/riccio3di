@@ -37,31 +37,33 @@ Potree.loadPointCloud("./pointclouds/tls/metadata.json", "Terrestrial Laser Scan
     let pointcloud = e.pointcloud;
     let material = pointcloud.material;
     pointcloud.projection = "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs +type=crs";
+    pointcloud.name = "tls";
     material.size = 0.6;
     material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
     material.shape = Potree.PointShape.CIRCLE;
-    material.activeAttributeName = "rgba"; // change this value to "classification" and uncomment the next 2 lines if you desire to show the classified point cloud
+    material.activeAttributeName = "rgba";
     scene.addPointCloud(pointcloud);
-    //viewer.setFrontView();
 });
 Potree.loadPointCloud("./pointclouds/drone/metadata.json", "Drone photogrammetry", e => {
     let pointcloud = e.pointcloud;
     let material = pointcloud.material;
     pointcloud.projection = "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs +type=crs";
+    pointcloud.name = "photogrammetry";
     material.size = 0.6;
     material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
     material.shape = Potree.PointShape.CIRCLE;
-    material.activeAttributeName = "rgba"; // change this value to "classification" and uncomment the next 2 lines if you desire to show the classified point cloud
+    material.activeAttributeName = "rgba";
     scene.addPointCloud(pointcloud);
 });
 Potree.loadPointCloud("./pointclouds/slam/metadata.json", "SLAM laser", e => {
     let pointcloud = e.pointcloud;
     let material = pointcloud.material;
     pointcloud.projection = "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs +type=crs";
+    pointcloud.name = "slam";
     material.size = 0.6;
     material.pointSizeType = Potree.PointSizeType.ADAPTIVE;
     material.shape = Potree.PointShape.CIRCLE;
-    material.activeAttributeName = "rgba"; // change this value to "classification" and uncomment the next 2 lines if you desire to show the classified point cloud
+    material.activeAttributeName = "rgba";
     scene.addPointCloud(pointcloud);
     scene.view.setView(
         [554525.845, 4988505.636, 169.732],

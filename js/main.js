@@ -64,9 +64,6 @@ function hideInfoPanel() {
     document.getElementById('info-iframe').src = '';
 }
 
-//-------- END OF TEST ---------//
-
-
 //Search bar code
 const searchInput = document.getElementById('searchInput');
 const suggestionsContainer = document.getElementById('suggestions');
@@ -110,6 +107,33 @@ function displaySuggestions(suggestions) {
     suggestionsContainer.style.display = 'block';
 }
 
+// Toggling legend panel and switching pointcloud colors
+function toggleLegendPanel() {
+    var panel = document.getElementById("legend_panel");
+    if (panel.style.display === "none" || panel.style.display === "") {
+        panel.style.display = "block";
+        changePCcolor("tls", 1, 0, 0);
+        changePCcolor("photogrammetry", 0, 1, 0);
+        changePCcolor("slam", 0, 0, 1);
+    } else {
+        panel.style.display = "none";
+        setRGBA("tls");
+        setRGBA("photogrammetry");
+        setRGBA("slam");
+    }
 
+}
 
+function changePCcolor(source, r, g, b) {
+    const targetPointCloud = viewer.scene.pointclouds.find(element => element.name === source);
+    targetPointCloud.material.activeAttributeName = "color";
+    const newColor = new THREE.Color(r, g, b); // RGB values for new color
+    if (targetPointCloud) {
+        targetPointCloud.material.color = newColor;
+    }
+}
 
+function setRGBA(source) {
+    const targetPointCloud = viewer.scene.pointclouds.find(element => element.name === source);
+    targetPointCloud.material.activeAttributeName = "rgba";
+}

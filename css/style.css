@@ -165,4 +165,39 @@ a:link, a:hover, a:visited, a:active {
     text-align: right;
 }
 
+/*Style of legend for point cloud*/
+#legend_panel {
+    position: fixed;
+    right: 10px;
+    bottom: 5em;
+    width: 200px;
+    height: 100px;
+    display: none;
+    background-color: #363232;
+    padding: 1em;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    box-shadow: -2px 0px 5px rgba(34, 33, 33, 0.2);
+    color: #f0f0f0;
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#cloud_legend_toggle{
+    position: fixed;
+    bottom: 1em;
+    right: 10px;
+    z-index: 1000;
+	margin:			0;
+	background:		none;
+	width:			2.5em;
+	height:			2.5em;
+	cursor: 		pointer;
+	margin:			4px;
+}
 

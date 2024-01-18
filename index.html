@@ -55,8 +55,7 @@
 	</div>
 	<!--Loading settings for Potree viewer-->
 	<div class="potree_container" style="position: relative; height:100%; width: 100%;">
-		<div id="potree_render_area" style="background-image: url('./build/potree/resources/images/background.jpg');">
-		</div>
+		<div id="potree_render_area"></div>
 		<div id="potree_sidebar_container" style="width: 50%; height: 100%;"> </div>
 	</div>
 	<div id="info-panel" style="display: none;">
@@ -68,7 +67,19 @@
 		<p id="info-medium"></p>
 		<p id="info-dimensions"></p>
 		<!-- Add more elements as needed -->
-	</div>	
+	</div>
+	<img id="cloud_legend_toggle" src="./libs/potree/resources/icons/eye_2.png"
+		alt="Toggle/Untoggle the legend for point cloud sources" onclick="toggleLegendPanel()">
+	<div id="legend_panel" style="display: none;">
+		<p>
+			<b>Pointcloud source</b>
+
+		<div style="color:green;"><b>UAV - Photogrammetry</b></div>
+		<div style="color: red;"><b>Terrestrial Laser Scanning</b></div>
+		<div style="color: blue;"><b>SLAM</b></div>
+		</ul>
+		</p>
+	</div>
 	<!-- Import ARTWORKS list-->
 	<script src="js/artworks.js"></script>
 	<script src="./js/main.js"></script>
