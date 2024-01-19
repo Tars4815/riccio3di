@@ -7,6 +7,8 @@ A working example can be found on the [LabMGF@PoliMi](https://labmgf.dica.polimi
 
 ![Example of an artwork view with informative panel](./screenshots/riccio3di-artworkpanel.png "Example of an artwork view with informative panel in the indoor pointcloud")
 
+![Example of custom legend panel for data sources](./screenshots/riccio3di-legendpanel.png "Example of custom legend panel for data sources")
+
 ## **Table of content** 📋
 
 - [How to install and run](#how-to-install-and-run-⚙)
@@ -34,6 +36,7 @@ For continuity sake, this project carries the same license as the original Potre
 - Indoor pointclouds navigations shortcuts
 - Searchable artworks
 - Informative panels
+- Custom legend panel
 
 ## **Performance** 💻
 Examples work best and with Google Chrome and Firefox.
