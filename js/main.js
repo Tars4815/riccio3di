@@ -138,7 +138,8 @@ function setRGBA(source) {
     targetPointCloud.material.activeAttributeName = "rgba";
 }
 
-// Camera in room? TEST
+// Camera in room? TEST of a WORKING EXAMPLE
+/*
 function isInsideRoom(cameraPosition, roomBoundingBox) {
     // Extract coordinates of camera position
     const cameraX = cameraPosition.x;
@@ -187,4 +188,71 @@ checkCameraPosition();
 document.addEventListener("mousemove", checkCameraPosition);
 document.addEventListener("mousedown", checkCameraPosition);
 document.addEventListener("mouseup", checkCameraPosition);
+document.addEventListener("wheel", checkCameraPosition);*/
+
+// TEST WITH MULTIPLE OBJECTS
+// Array of room bounding boxes
+const rooms = [
+    {
+        name: "Room1",
+        minX: 554495.642,
+        minY: 4988582.288,
+        minZ: 96.953,
+        maxX: 554505.112,
+        maxY: 4988593.742,
+        maxZ: 100.095,
+    },
+    {
+        name: "Room12",
+        minX: 554595.642,
+        minY: 4988682.288,
+        minZ: 100.953,
+        maxX: 554605.112,
+        maxY: 4988693.742,
+        maxZ: 200.095,
+    },
+    // Add more room objects as needed
+];
+
+window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+// Function to check if the camera is inside any of the rooms and log the result
+function checkCameraPosition() {
+    const cameraPosition = viewer.scene.getActiveCamera().position;
+
+    // Iterate through the array of room bounding boxes
+    for (const room of rooms) {
+        const isInside = isInsideRoom(cameraPosition, room);
+
+        if (isInside) {
+            console.log(`Camera is inside ${room.name}.`);
+            return; // Exit the function if the camera is inside any room
+        }
+    }
+
+    console.log("Camera is outside all rooms.");
+}
+
+// Add event listener for camera changes
+viewer.addEventListener("camera_changed", checkCameraPosition);
+
+// Add event listener for mouse events
+document.addEventListener("mousemove", checkCameraPosition);
+document.addEventListener("mousedown", checkCameraPosition);
+document.addEventListener("mouseup", checkCameraPosition);
 document.addEventListener("wheel", checkCameraPosition);
+
+// Initial check when the page loads
+checkCameraPosition();
+
+// Function to check if a point is inside a room bounding box
+function isInsideRoom(point, room) {
+    return (
+        point.x >= room.minX &&
+        point.x <= room.maxX &&
+        point.y >= room.minY &&
+        point.y <= room.maxY &&
+        point.z >= room.minZ &&
+        point.z <= room.maxZ
+    );
+}
+
