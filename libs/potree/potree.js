@@ -89026,20 +89026,16 @@ ENDSEC
 				imgMenuToggle.src = new URL(Potree.resourcePath + '/icons/menu_button.svg').href;
 				imgMenuToggle.onclick = this.toggleSidebar;
 				imgMenuToggle.classList.add('potree_menu_toggle');
+				imgMenuToggle.alt = 'Toggle sidebar menu';
+				imgMenuToggle.title = 'Toggle sidebar menu';
 
 				let imgMapToggle = document.createElement('img');
 				imgMapToggle.src = new URL(Potree.resourcePath + '/icons/map_icon.png').href;
 				imgMapToggle.style.display = 'none';
 				imgMapToggle.onclick = e => { this.toggleMap(); };
 				imgMapToggle.id = 'potree_map_toggle';
-
-				// Potree quick legend button
-				//let imgLegendToggle = document.createElement('img');
-				//imgLegendToggle.src = new URL(Potree.resourcePath + '/icons/eye_2.png').href;
-				// imgLegendToggle.onclick = e => { this.toggleMap(); };
-				//imgLegendToggle.id = 'cloud_legend_toggle';
-				//imgLegendToggle.alt = "Toggle/Untoggle the legend for point cloud sources";
-				//imgLegendToggle.title = "Toggle/Untoggle the legend for point cloud sources";
+				imgMapToggle.alt = 'Toggle map view';
+				imgMapToggle.title = 'Toggle map view';
 
 				let elButtons = $("#potree_quick_buttons").get(0);
 
