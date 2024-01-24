@@ -44,6 +44,7 @@ function flyToSuggestion(array, searchString) {
     }
 }
 
+//Populating the Info Panel with technical details about the highlighted artwork
 function updateInfoPanel(artwork) {
     document.getElementById('info-title').textContent = artwork.title;
     document.getElementById('info-artist').innerHTML = '<b>Artist:</b> ' + artwork.artist;
@@ -91,6 +92,7 @@ function getSuggestions(searchString) {
     }).map(obj => obj.title);
 }
 
+//Showing artwork title suggestions
 function displaySuggestions(suggestions) {
     if (suggestions.length === 0) {
         suggestionsContainer.style.display = 'none';
@@ -123,7 +125,7 @@ function toggleLegendPanel() {
     }
 
 }
-
+//Defining function to change color of a point cloud to a uniform RGB combination
 function changePCcolor(source, r, g, b) {
     const targetPointCloud = viewer.scene.pointclouds.find(element => element.name === source);
     targetPointCloud.material.activeAttributeName = "color";
@@ -132,69 +134,17 @@ function changePCcolor(source, r, g, b) {
         targetPointCloud.material.color = newColor;
     }
 }
-
+//Defining function to change color of a point cloud to RGB
 function setRGBA(source) {
     const targetPointCloud = viewer.scene.pointclouds.find(element => element.name === source);
     targetPointCloud.material.activeAttributeName = "rgba";
 }
 
-// Camera in room? TEST of a WORKING EXAMPLE
-/*
-function isInsideRoom(cameraPosition, roomBoundingBox) {
-    // Extract coordinates of camera position
-    const cameraX = cameraPosition.x;
-    const cameraY = cameraPosition.y;
-    const cameraZ = cameraPosition.z;
-
-    // Extract bounding box coordinates of the room
-    const { minX, minY, minZ, maxX, maxY, maxZ } = roomBoundingBox;
-
-    // Check if camera is inside the room
-    return (
-        cameraX >= minX && cameraX <= maxX &&
-        cameraY >= minY && cameraY <= maxY &&
-        cameraZ >= minZ && cameraZ <= maxZ
-    );
-}
-
-// Example usage:
-window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-const roomBoundingBox = {
-    minX: 554495.642,
-    minY: 4988582.288,
-    minZ: 96.953,
-    maxX: 554505.112,
-    maxY: 4988593.742,
-    maxZ: 100.095,
-};
-
-
-
-// Function to check if the camera is inside the room and log the result
-function checkCameraPosition() {
-    const cameraPosition = viewer.scene.getActiveCamera().position;
-    const isInside = isInsideRoom(cameraPosition, roomBoundingBox);
-
-    if (isInside) {
-        console.log("Camera is inside the room.");
-    } else {
-        console.log("Camera is outside the room.");
-    }
-}
-
-// Initial check when the page loads
-checkCameraPosition();
-
-document.addEventListener("mousemove", checkCameraPosition);
-document.addEventListener("mousedown", checkCameraPosition);
-document.addEventListener("mouseup", checkCameraPosition);
-document.addEventListener("wheel", checkCameraPosition);*/
-
 // TEST WITH MULTIPLE OBJECTS
 // Array of room bounding boxes
 const rooms = [
     {
-        name: "Room1",
+        name: "Room I",
         minX: 554495.642,
         minY: 4988582.288,
         minZ: 96.953,
@@ -395,34 +345,6 @@ const rooms = [
 ];
 
 window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
-// Function to check if the camera is inside any of the rooms and log the result
-function checkCameraPosition() {
-    const cameraPosition = viewer.scene.getActiveCamera().position;
-
-    // Iterate through the array of room bounding boxes
-    for (const room of rooms) {
-        const isInside = isInsideRoom(cameraPosition, room);
-
-        if (isInside) {
-            console.log(`Camera is inside ${room.name}.`);
-            return; // Exit the function if the camera is inside any room
-        }
-    }
-
-    console.log("Camera is outside all rooms.");
-}
-
-// Add event listener for camera changes
-viewer.addEventListener("camera_changed", checkCameraPosition);
-
-// Add event listener for mouse events
-document.addEventListener("mousemove", checkCameraPosition);
-document.addEventListener("mousedown", checkCameraPosition);
-document.addEventListener("mouseup", checkCameraPosition);
-document.addEventListener("wheel", checkCameraPosition);
-
-// Initial check when the page loads
-checkCameraPosition();
 
 // Function to check if a point is inside a room bounding box
 function isInsideRoom(point, room) {
@@ -436,3 +358,79 @@ function isInsideRoom(point, room) {
     );
 }
 
+// test
+let currentRoom = null; // Variable to store the current room
+
+function displayRoomBanner(roomName) {
+    let bannerElement = document.getElementById("roomBanner");
+
+    // Create or update the banner element
+    if (!bannerElement) {
+        bannerElement = document.createElement("div");
+        bannerElement.id = "roomBanner";
+        bannerElement.style.position = "fixed";
+        bannerElement.style.bottom = "20px";
+        bannerElement.style.left = "50%";
+        bannerElement.style.transform = "translateX(-50%)";
+        bannerElement.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
+        bannerElement.style.color = "white";
+        bannerElement.style.padding = "10px";
+        bannerElement.style.borderRadius = "5px";
+        bannerElement.style.zIndex = "9999";
+        document.body.appendChild(bannerElement);
+    }
+
+    // Update the banner content if the room has changed
+    if (roomName !== currentRoom) {
+        bannerElement.textContent = `${roomName}`;
+        currentRoom = roomName; // Update the current room
+    }
+
+    // Display the banner
+    bannerElement.style.display = "block";
+
+    // Set a timeout to hide the banner after a few seconds (adjust as needed)
+    setTimeout(() => {
+        bannerElement.style.display = "none";
+    }, 3000); // Hide after 3 seconds (adjust as needed)
+}
+
+// Update the checkCameraPosition function to display the banner when entering a different room
+function checkCameraPosition() {
+    const cameraPosition = viewer.scene.getActiveCamera().position;
+    let isInsideAnyRoom = false;
+
+    // Iterate through the array of room bounding boxes
+    for (const room of rooms) {
+        const isInside = isInsideRoom(cameraPosition, room);
+
+        if (isInside) {
+            if (currentRoom !== room.name) {
+                console.log(`Camera entered ${room.name}.`);
+                displayRoomBanner(room.name);
+                isInsideAnyRoom = true;
+                currentRoom = room.name; // Update the current room
+            }
+            return; // Exit the loop if the camera is inside any room
+        }
+    }
+
+    if (!isInsideAnyRoom) {
+        console.log("Camera is outside all rooms.");
+
+        // Reset the current room
+        currentRoom = null;
+    }
+}
+
+// Add event listener for camera changes
+viewer.addEventListener("camera_changed", checkCameraPosition);
+
+// Add event listener for mouse events
+document.addEventListener("mousemove", checkCameraPosition);
+document.addEventListener("mousedown", checkCameraPosition);
+document.addEventListener("mouseup", checkCameraPosition);
+document.addEventListener("wheel", checkCameraPosition);
+
+// Initial check when the page loads
+checkCameraPosition();
