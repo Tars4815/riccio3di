@@ -24,6 +24,11 @@ Make sure you have the following installed and working in order to reproduce the
 * [Xampp / Apache server](https://www.apachefriends.org/index.html)
 * [Github to clone project](https://git-scm.com/downloads)
 
+Once you cloned this repository, make sure that it is located inside the *xampp/htdocs* directory. The web app will then be accessible by connecting to the url *localhost/riccio3di/*.
+
+In order to enable the db connection for annotations loading, install PostgreSQL and create a new database containing a table for artworks information. For the Ricci Oddi case study, PostgreSQL 16.1 version has been used.
+Then, fix the connection credentials in index.php according to your case.
+
 ## **License**
 
 For continuity sake, this project carries the same license as the original Potree project. More information can be found in the [LICENSE](https://github.com/Tars4815/riccio3di/blob/main/LICENCE) file.
@@ -35,8 +40,9 @@ For continuity sake, this project carries the same license as the original Potre
 - Oriented images on the model
 - Indoor pointclouds navigations shortcuts
 - Searchable artworks
-- Informative panels
+- Informative panels and indoor navigaation
 - Custom legend panel
+- Annotation defined through database connection
 
 ## **Performance** 💻
 Examples work best and with Google Chrome and Firefox.
