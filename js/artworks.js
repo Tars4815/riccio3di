@@ -1,6 +1,6 @@
 const artworks = [
     { title: "La colazione del mattino", file: "1.JPG", artist: "Amedeo Bocchi", youtube: "https://www.youtube.com/watch?v=j_ad8ywOXuU", year: "1919", medium: "Oil on canvas", dimensions: "125x181cm" },
-    { title: "Pattuglia di lanceri a cavallo", file: "2.JPG", artist: "Giovanni Fattori", youtube: "https://youtu.be/a5CaabPwnpM?si=ISDlVyzBjCgml2I9", year: "1861 - 1864", medium: "Oil on panel", dimensions: "19.5x35cm" },
+    { title: "Pattuglia di lanceri a cavallo", file: "2_test.jpg", artist: "Giovanni Fattori", youtube: "https://youtu.be/a5CaabPwnpM?si=ISDlVyzBjCgml2I9", year: "1861 - 1864", medium: "Oil on panel", dimensions: "19.5x35cm" },
     { title: "Sulle rive del lago di Ginevra", file: "5.JPG", artist: "Antonio Fontanesi", youtube: "#", year: "1855-1862", medium: "Oil on canvas", dimensions: "23x119cm" },
     { title: "Stagno", file: "6.JPG", artist: "Auguste Ravier", youtube: "https://youtu.be/r0Qm9jMssSI?si=NjWX17UI8FMmI3yE", year: "1880", medium: "Oil on paper", dimensions: "18.5x25.5cm" },
     { title: "Le fumatrici di oppio", file: "8.JPG", artist: "Gaetano Previati", youtube: "https://youtu.be/_4wcVm3sk0Q?si=TaArsWZxiykGXcRR", year: "1887", medium: "Oil on canvas", dimensions: "80x150cm" },

@@ -186,17 +186,14 @@ function displayRoomBanner(roomName) {
 
     // Display the banner
     bannerElement.style.display = "block";
-
-    // Set a timeout to hide the banner after a few seconds (adjust as needed)
-    setTimeout(() => {
-        bannerElement.style.display = "none";
-    }, 3000); // Hide after 3 seconds (adjust as needed)
 }
 
 // Update the checkCameraPosition function to display the banner when entering a different room
 function checkCameraPosition() {
     const cameraPosition = viewer.scene.getActiveCamera().position;
+    const camera = viewer.scene.getActiveCamera();
     let isInsideAnyRoom = false;
+    let originalCameraPosition = camera.position.clone();
 
     // Iterate through the array of room bounding boxes
     for (const room of rooms) {
@@ -209,6 +206,9 @@ function checkCameraPosition() {
                 isInsideAnyRoom = true;
                 currentRoom = room.name; // Update the current room
             }
+
+            // Constrain camera movement within the current room
+            constrainCameraPosition(camera, room);
             return; // Exit the loop if the camera is inside any room
         }
     }
@@ -218,6 +218,8 @@ function checkCameraPosition() {
 
         // Reset the current room
         currentRoom = null;
+        // Restore the original camera position if outside all rooms
+        camera.position.copy(originalCameraPosition);
     }
 }
 
@@ -232,3 +234,12 @@ document.addEventListener("wheel", checkCameraPosition);
 
 // Initial check when the page loads
 checkCameraPosition();
+
+// Testing room constrains
+// Add a function to constrain the active camera position within the current room
+function constrainCameraPosition(camera, room) {
+    // Constrain camera position within the current room
+    camera.position.x = Math.max(room.minX, Math.min(camera.position.x, room.maxX));
+    camera.position.y = Math.max(room.minY, Math.min(camera.position.y, room.maxY));
+    camera.position.z = Math.max(room.minZ, Math.min(camera.position.z, room.maxZ));
+}

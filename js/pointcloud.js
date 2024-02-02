@@ -1,4 +1,4 @@
-/* Loading Potree viewer in the Potree Render Area defined in index.html */
+/* Loading Potree viewer in the Potree Render Area defined in index.php */
 window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
 /* Defining appearance settings for rendering in the viewer */
 viewer.setEDLEnabled(true); // Enabling Eye-Dome-Lighting option
@@ -70,3 +70,4 @@ Potree.loadPointCloud("./pointclouds/slam/metadata.json", "SLAM laser", e => {
         [554510.667, 4988540.543, 122.537],
     );
 });
+
