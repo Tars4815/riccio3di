@@ -84,6 +84,16 @@
 		</ul>
 		</p>
 	</div>
+	<img id="indoor_map_toggle" src="./libs/potree/resources/icons/floor-plan.svg"
+		alt="Toggle/Untoggle indoor plan view" title="Toggle/Untoggle indoor plan view" onclick="toggleFloorPlan()">
+	<div id="indoor_panel" style="display: none;">
+		<p>
+			<b>Floor plan</b><br><br>
+
+			<img id="indoor_panel_image" alt="Indoor Panel Image">
+
+		</p>
+	</div>
 	<!-- Import ARTWORKS list-->
 	<script src="js/artworks.js"></script>
 	<!-- Import ROOMS list-->

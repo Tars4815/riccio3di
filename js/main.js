@@ -175,6 +175,8 @@ function displayRoomBanner(roomName) {
         bannerElement.style.padding = "10px";
         bannerElement.style.borderRadius = "5px";
         bannerElement.style.zIndex = "9999";
+        bannerElement.style.fontFamily = 'Open Sans';
+        bannerElement.style.fontSize = "0.8em";
         document.body.appendChild(bannerElement);
     }
 
@@ -201,10 +203,15 @@ function checkCameraPosition() {
 
         if (isInside) {
             if (currentRoom !== room.name) {
-                console.log(`Camera entered ${room.name}.`);
+                console.log(`Camera entered ${room.name}, ${room.img}.`);
                 displayRoomBanner(room.name);
+                // Log the image source before updating
+                console.log("Image source:", room.img);
+                // Update the image inside #indoor_panel
+                updateIndoorPanelImage(room.img);
+                console.log("Changing floor plan image");
                 isInsideAnyRoom = true;
-                currentRoom = room.name; // Update the current room
+                currentRoom = room.name;
             }
 
             // Constrain camera movement within the current room
@@ -220,6 +227,8 @@ function checkCameraPosition() {
         currentRoom = null;
         // Restore the original camera position if outside all rooms
         camera.position.copy(originalCameraPosition);
+        // Reset the image inside #indoor_panel
+        updateIndoorPanelImage(null);
     }
 }
 
@@ -242,4 +251,33 @@ function constrainCameraPosition(camera, room) {
     camera.position.x = Math.max(room.minX, Math.min(camera.position.x, room.maxX));
     camera.position.y = Math.max(room.minY, Math.min(camera.position.y, room.maxY));
     camera.position.z = Math.max(room.minZ, Math.min(camera.position.z, room.maxZ));
+}
+
+// Toggling floor plan panel
+function toggleFloorPlan() {
+    var panel = document.getElementById("indoor_panel");
+    var indoorPanelImage = document.getElementById("indoor_panel_image");
+    if (panel.style.display === "none" || panel.style.display === "") {
+        panel.style.display = "block";
+        indoorPanelImage.style.display = "block";
+    } else {
+        panel.style.display = "none";
+        indoorPanelImage.style.display = "none";
+    }
+}
+
+function updateIndoorPanelImage(imageSrc) {
+    console.log("Updating image with source:", imageSrc);
+    const indoorPanelImage = document.getElementById("indoor_panel_image");
+
+
+    if (imageSrc) {
+        // If imageSrc is provided, update the image source
+        indoorPanelImage.src = imageSrc;
+        //indoorPanelImage.src = "assets/floor-plan/room-XVIII.png";
+        indoorPanelImage.style.display = "block"; // Show the image
+    } else {
+        // If imageSrc is null, hide the image
+        indoorPanelImage.style.display = "none";
+    }
 }

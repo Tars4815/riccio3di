@@ -14,9 +14,9 @@
     filter: invert(1);
 }
 
-#container{
-    position:absolute;
-    width:100%;
+#container {
+    position: absolute;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 10%;
@@ -24,9 +24,9 @@
     visibility: visible;
 }
 
-.info{
-	font-family: 'Open Sans';
-	position:absolute;
+.info {
+    font-family: 'Open Sans';
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 30px;
     display: flex;
@@ -40,26 +40,26 @@
     transform: translate(-50%, -0%);
 }
 
-.info .website-link{
+.info .website-link {
     font-size: 1em;
     font-style: italic;
     font-weight: bold;
     color: #000;
 }
 
-.info .subtitle{
+.info .subtitle {
     font-size: 1em;
     font-style: italic;
     font-weight: bold;
 }
 
-.info .title{
+.info .title {
     font-size: 3em;
     text-align: center;
     font-weight: bold;
 }
 
-.info .button{
+.info .button {
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -67,17 +67,20 @@
     cursor: pointer;
 }
 
-.info .button:hover{
+.info .button:hover {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.info .instructions{
+.info .instructions {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 24px 0 0 0;
 }
 
-a:link, a:hover, a:visited, a:active {
+a:link,
+a:hover,
+a:visited,
+a:active {
     color: rgb(0, 0, 0);
     text-decoration: none;
 }
@@ -117,12 +120,14 @@ a:link, a:hover, a:visited, a:active {
 #info-panel {
     position: fixed;
     right: 0;
-    top: 50px; /* Adjust as needed */
-    width: 300px; /* Adjust as needed */
+    top: 130px;
+    width: 300px;
+    /* Adjust as needed */
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    z-index: 1000; /* To ensure it's above other elements */
+    z-index: 1000;
+    /* To ensure it's above other elements */
     font-family: 'Open Sans';
 }
 
@@ -188,16 +193,50 @@ a:link, a:hover, a:visited, a:active {
     display: none;
 }
 
-#cloud_legend_toggle{
+#cloud_legend_toggle {
     position: fixed;
     bottom: 1em;
     right: 10px;
     z-index: 1000;
-	margin:			0;
-	background:		none;
-	width:			2.5em;
-	height:			2.5em;
-	cursor: 		pointer;
-	margin:			4px;
+    margin: 0;
+    background: none;
+    width: 2.5em;
+    height: 2.5em;
+    cursor: pointer;
+    margin: 4px;
 }
 
+/*Style of legend for point cloud*/
+#indoor_panel {
+    position: fixed;
+    right: 10px;
+    bottom: 5em;
+    width: 350px;
+    height: 300px;
+    /* display: none;*/
+    background-color: #363232;
+    padding: 1em;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    box-shadow: -2px 0px 5px rgba(34, 33, 33, 0.2);
+    color: #f0f0f0;
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#indoor_map_toggle {
+    position: fixed;
+    bottom: 1.2em;
+    right: 50px;
+    z-index: 1000;
+    margin: 0;
+    background: none;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    margin: 4px;
+    filter: invert(1);
+}
