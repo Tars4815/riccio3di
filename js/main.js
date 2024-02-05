@@ -2,7 +2,6 @@
 function hideWelcomePanel() {
     var welcomePanel = document.getElementById('container');
     welcomePanel.style.visibility = "hidden";
-    console.log("Hiddening welcomePanel");
 }
 
 //Fly to a specific oriented image
@@ -159,7 +158,7 @@ function isInsideRoom(point, room) {
 // test
 let currentRoom = null; // Variable to store the current room
 
-function displayRoomBanner(roomName) {
+function displayRoomBanner(roomName, roomTheme) {
     let bannerElement = document.getElementById("roomBanner");
 
     // Create or update the banner element
@@ -182,7 +181,7 @@ function displayRoomBanner(roomName) {
 
     // Update the banner content if the room has changed
     if (roomName !== currentRoom) {
-        bannerElement.textContent = `${roomName}`;
+        bannerElement.textContent = `${roomName} - ${roomTheme}`;
         currentRoom = roomName; // Update the current room
     }
 
@@ -203,13 +202,9 @@ function checkCameraPosition() {
 
         if (isInside) {
             if (currentRoom !== room.name) {
-                console.log(`Camera entered ${room.name}, ${room.img}.`);
-                displayRoomBanner(room.name);
-                // Log the image source before updating
-                console.log("Image source:", room.img);
+                displayRoomBanner(room.name, room.theme);
                 // Update the image inside #indoor_panel
                 updateIndoorPanelImage(room.img);
-                console.log("Changing floor plan image");
                 isInsideAnyRoom = true;
                 currentRoom = room.name;
             }
@@ -267,7 +262,6 @@ function toggleFloorPlan() {
 }
 
 function updateIndoorPanelImage(imageSrc) {
-    console.log("Updating image with source:", imageSrc);
     const indoorPanelImage = document.getElementById("indoor_panel_image");
 
 
