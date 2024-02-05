@@ -268,10 +268,10 @@ function updateIndoorPanelImage(imageSrc) {
     if (imageSrc) {
         // If imageSrc is provided, update the image source
         indoorPanelImage.src = imageSrc;
-        //indoorPanelImage.src = "assets/floor-plan/room-XVIII.png";
         indoorPanelImage.style.display = "block"; // Show the image
     } else {
         // If imageSrc is null, hide the image
-        indoorPanelImage.style.display = "none";
+        //indoorPanelImage.style.display = "none";
+        indoorPanelImage.src = "assets/floor-plan/rooms.png";
     }
 }
