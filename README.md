@@ -34,15 +34,42 @@ Then, fix the connection credentials in index.php according to your case.
 For continuity sake, this project carries the same license as the original Potree project. More information can be found in the [LICENSE](https://github.com/Tars4815/riccio3di/blob/main/LICENCE) file.
 
 ## **Features** 💡
-- Fullscreen HTML5 API
-- Simplified guided navigation
-- Accessible
-- Oriented images on the model
-- Indoor pointclouds navigations shortcuts
-- Searchable artworks
-- Informative panels and indoor navigaation
-- Custom legend panel
-- Annotation defined through database connection
+
+**Custom welcome page**
+
+<video width="320" height="240" controls>
+  <source src="assets/video/welcome-page.mp4" type="video/mp4">
+</video>
+
+**3D scene exploration**
+
+<video width="320" height="240" controls>
+  <source src="assets/video/3d-scene-exploration.mp4" type="video/mp4">
+</video>
+
+**Point cloud source legend**
+
+<video width="320" height="240" controls>
+  <source src="assets/video/point-cloud-source-legend.mp4" type="video/mp4">
+</video>
+
+**Search bar and info panel**
+
+<video width="320" height="240" controls>
+  <source src="assets/video/search-bar-info-panel.mp4" type="video/mp4">
+</video>
+
+**Indoor floor plan navigation**
+
+<video width="320" height="240" controls>
+  <source src="assets/video/indoor-floor-plan-navigation.mp4" type="video/mp4">
+</video>
+
+**Database-connected annotations**
+
+<video width="320" height="240" controls>
+  <source src="assets/video/database-connected-annotations.mp4" type="video/mp4">
+</video>
 
 ## **Performance** 💻
 Examples work best and with Google Chrome and Firefox.
@@ -66,4 +93,6 @@ if you are willing to contribute or test the template for several applications a
 4. Make desired changes to the code and commit them
 5. Push changes to your GitHub repository
 6. Open a pull request
+
+
 
