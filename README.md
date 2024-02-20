@@ -17,6 +17,7 @@ A working example can be found on the [LabMGF@PoliMi](https://labmgf.dica.polimi
 - [Performance](#performance-💻)
 - [Credits](#credits-👥)
 - [How to contribute](#how-to-contribute-❓)
+- [References](#references-📚)
 
 ## **How to install and run** ⚙
 
@@ -94,5 +95,7 @@ if you are willing to contribute or test the template for several applications a
 5. Push changes to your GitHub repository
 6. Open a pull request
 
+## References 📚
 
+* Fascia, R., Barbieri, F., Gaspari, F., Ioli, F., and Pinto, L.: From 3D survey to digital reality of a complex architecture: a digital workflow for cultural heritage promotion, *Int. Arch. Photogramm. Remote Sens. Spatial Inf. Sci.*, XLVIII-2/W4-2024, 205–212, https://doi.org/10.5194/isprs-archives-XLVIII-2-W4-2024-205-2024, 2024
 
